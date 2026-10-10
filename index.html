@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yask.ru</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Luxurious+Script&family=Noto+Sans+JP:wght@300;400;500;700&family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet"></head>
+<body>
+
+    <!-- ВЕРХНЕЕ МЕНЮ -->
+    <header class="top-nav">
+        <div class="nav-logo">夢</div>
+        <nav class="nav-links">
+            <a href="index.html" class="active">Главная</a>
+            <a href="feedback.html">Отзывы</a>
+            <a href="cats.html">Кошечки</a>
+            <a href="works.html">Галерея</a>
+            <a href="music.html">Музыка</a>
+        </nav>
+        <div class="nav-icons-right">
+            <a href="https://t.me/yaskim" target="_blank" class="nav-user">
+                <img src="https://i.pinimg.com/736x/97/19/ef/9719ef5065170cc64667f3db2b44e492.jpg" alt="User">
+            </a>
+            <button class="nav-icon-btn"><i class="fa-regular fa-envelope"></i></button>
+            <button class="nav-icon-btn"><i class="fa-regular fa-bell"></i></button>
+            <button class="nav-icon-btn accent"><i class="fa-solid fa-plus"></i></button>
+            <button class="nav-icon-btn"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </header>
+
+    <!-- ОСНОВНАЯ СЕТКА -->
+    <main class="layout">
+
+        <!-- ЛЕВАЯ КОЛОНКА -->
+        <aside class="col-left">
+
+            <!-- Профиль -->
+            <div class="card profile-card">
+                <div class="profile-top">
+                    <div class="profile-avatar">
+                        <img src="https://i.pinimg.com/736x/97/19/ef/9719ef5065170cc64667f3db2b44e492.jpg" alt="Avatar">
+                    </div>
+                    <div class="profile-info">
+                        <h3 class="profile-name">Yask <i class="fa-solid fa-star"></i></h3>
+                        <p class="profile-sub">вечно где-то между<br>прошлым и настоящим</p>
+                        <span class="profile-online"><span class="dot"></span> онлайн</span>
+                    </div>
+                </div>
+                <div class="profile-rows">
+                    <div class="profile-row">
+                        <span class="profile-label">Статус</span>
+                        <span class="profile-tag">Творческая</span>
+                    </div>
+                    <div class="profile-row">
+                        <span class="profile-label">Роль</span>
+                        <span class="profile-tag">Мечтатель</span>
+                    </div>
+                    <div class="profile-row">
+                        <span class="profile-label">Настроение</span>
+                        <span class="profile-tag">^w^</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Мини-плеер -->
+            <div class="card mini-player" id="player1">
+    <div class="mini-player-top">
+        <div class="mini-player-cover"><i class="fa-solid fa-music"></i></div>
+        <div class="mini-player-info">
+            <span class="mini-player-title">kawaii kawaii</span>
+            <span class="mini-player-artist">by piki</span>
+        </div>
+        <button class="icon-heart" data-heart><i class="fa-regular fa-heart"></i></button>
+    </div>
+    <div class="mini-player-progress">
+        <span class="time-current">0:00</span>
+        <div class="progress-bar" data-progress>
+            <div class="progress-fill" data-fill></div>
+        </div>
+        <span class="time-total">0:00</span>
+    </div>
+    <div class="mini-player-controls">
+        <button data-rewind><i class="fa-solid fa-backward-step"></i></button>
+        <button class="play-main" data-play><i class="fa-solid fa-play"></i></button>
+        <button data-forward><i class="fa-solid fa-forward-step"></i></button>
+    </div>
+    <audio data-audio src="music.mp3" preload="metadata"></audio>
+</div>
+            <!-- День рождения -->
+            <div class="card birthday-card">
+                <div class="birthday-header">
+                    <span class="birthday-label-top">День рождения</span>
+                    <i class="fa-solid fa-cake-candles"></i>
+                </div>
+                <div class="birthday-body">
+                    <span class="birthday-day">9</span>
+                    <span class="birthday-month">ноября</span>
+                </div>
+                <div class="birthday-footer">
+                    <span class="birthday-hint">♡ ждём с нетерпением! ♡</span>
+                </div>
+            </div>
+
+            <!-- Цитата -->
+            <div class="card quote-card">
+                <p class="quote-text">«Делай то, что любишь,<br>и однажды это станет<br>твоей жизнью.»</p>
+                <p class="quote-jp">好きなことで生きていく</p>
+            </div>
+
+        </aside>
+
+        <!-- ЦЕНТР -->
+        <section class="col-center">
+
+            <!-- HERO -->
+            <div class="card hero-card">
+                <div class="hero-image">
+                    <img src="angel.png" alt="Anime Girl">
+                </div>
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <span class="hero-kanji">夢</span>
+                    <h1 class="hero-title">
+                        let's be <span class="plus">+</span><br>
+                        <em>friends</em>
+                    </h1>
+                    <p class="hero-desc">
+                        <i class="fa-solid fa-clover"></i> just a girl who likes sweet things and cake.
+                    </p>
+                </div>
+                <span class="hero-jp-vertical">ずっと、一緒にいたい</span>
+            </div>
+
+            <!-- СЕТКА КАРТОЧЕК — 3 независимые колонки -->
+            <div class="cards-grid">
+
+                <!-- Колонка 1 -->
+                <div class="cards-col">
+                    <div class="card about-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-star"></i> Обо мне</h3>
+                        </div>
+                        <p class="card-text">Я мечтаю о многом и верю в красивые моменты.</p>
+                        <div class="tag-row">
+                            <span class="tag">Аниме</span>
+                            <span class="tag">Музыка</span>
+                            <span class="tag">Манга</span>
+                            <span class="tag">Сладости</span>
+                            <span class="tag">Дождь</span>
+                            <span class="tag">Кошки</span>
+                        </div>
+                    </div>
+
+                    <div class="card fact-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-cat"></i> Факт дня <span class="jp-small">猫</span></h3>
+                        </div>
+                        <div class="fact-content">
+                            <div class="fact-icon"><i class="fa-solid fa-cat"></i></div>
+                            <p id="catFact" class="fact-text">Загрузка...</p>
+                        </div>
+                        <button id="newFactBtn" class="mini-btn">
+                            <i class="fa-solid fa-rotate"></i> Новый
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Колонка 2 -->
+                <div class="cards-col">
+                    <div class="card notes-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-pen"></i> Заметки <span class="jp-small">ノート</span></h3>
+                            <span class="mood-date">сейчас</span>
+                        </div>
+                        <ul class="notes-list">
+                            <li><i class="fa-solid fa-moon"></i><span>Сегодня луна была особенно красивой.</span></li>
+                            <li><i class="fa-solid fa-cat"></i><span>Мой кот снова спит на клавиатуре. ^w^</span></li>
+                            <li><i class="fa-solid fa-music"></i><span>Слушаю kawaii kawaii весь день.</span></li>
+                            <li><i class="fa-solid fa-star"></i><span>Хочу посмотреть новый аниме-сезон.</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="card gallery-mini-card">
+                        <div class="card-header">
+                            <h3><i class="fa-regular fa-image"></i> Галерея <span class="jp-small">作品</span></h3>
+                            <a href="works.html">Все →</a>
+                        </div>
+                        <div class="gallery-mini">
+                            <img src="https://i.pinimg.com/736x/92/74/35/927435e7ad4c301eea0b18de6740e740.jpg" alt="">
+                            <img src="catt.jpg" alt="">
+                            <img src="https://i.pinimg.com/736x/71/31/e2/7131e2a60fdc64a0f6c1dd07cbc8ec4d.jpg" alt="">
+                            <img src="https://i.pinimg.com/1200x/ab/93/06/ab9306bd7a73b975d4379823caff45ff.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Колонка 3 -->
+                <div class="cards-col">
+                    <div class="card music-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-music"></i> Сейчас играет</h3>
+                        </div>
+                        <div class="music-info">
+                            <div class="music-cover"><i class="fa-solid fa-music"></i></div>
+                            <div>
+                                <span class="music-title">kawaii kawaii</span>
+                                <span class="music-artist">by piki</span>
+                            </div>
+                        </div>
+                        <div class="music-progress">
+                            <span class="time">1:42</span>
+                            <div class="progress-bar"><div class="progress-fill"></div></div>
+                            <span class="time">3:28</span>
+                        </div>
+                        <div class="music-controls">
+                            <button><i class="fa-solid fa-backward-step"></i></button>
+                            <button class="play-main"><i class="fa-solid fa-pause"></i></button>
+                            <button><i class="fa-solid fa-forward-step"></i></button>
+                            <button class="heart-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="card media-card">
+                        <div class="media-collage">
+                            <img src="https://i.pinimg.com/736x/86/98/aa/8698aa00cd136ac34e628525097d9b67.jpg" alt="">
+                            <img src="https://i.pinimg.com/736x/39/50/83/395083543940bdd0cf8cd9ce36986295.jpg" alt="">
+                            <img src="https://i.pinimg.com/736x/ca/0b/49/ca0b498acf1d50328a1e82da1fd59455.jpg" alt="">
+                            <img src="https://i.pinimg.com/736x/41/4c/36/414c36d285d39fd68883fa45a52402f0.jpg" alt="">
+                            <img src="https://i.pinimg.com/736x/54/f7/b5/54f7b5b711bfaa30ad44fefb198fc1ca.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ПРАВАЯ КОЛОНКА -->
+        <aside class="col-right">
+
+            <!-- Карточка-цитата с картинкой -->
+            <div class="card side-quote-card">
+                <img src="https://i.pinimg.com/1200x/50/18/bb/5018bb7fb9d5b1cc622db67d7bb0ca31.jpg" alt="">
+                <div class="side-quote-overlay"></div>
+                <p class="side-quote-text">«Иногда самые красивые моменты — это просто тишина.»</p>
+            </div>
+
+            <!-- Статус -->
+            <div class="card stats-card">
+                <div class="stats-row">
+                    <span class="stats-dot"></span>
+                    <span class="stats-label">Онлайн</span>
+                </div>
+                <div class="stats-big">
+                    <span class="stats-num">2026</span>
+                    <span class="stats-sub">Год активности</span>
+                </div>
+            </div>
+
+            <!-- Кнопки -->
+            <div class="side-actions">
+                <button class="side-action">
+                    <i class="fa-solid fa-user-plus"></i>
+                    <span>Подписчики</span>
+                </button>
+                <button class="side-action">
+                    <i class="fa-solid fa-comment"></i>
+                    <span>Сообщения</span>
+                </button>
+                <button class="side-action">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>Избранное</span>
+                </button>
+            </div>
+
+            <!-- Вертикальный текст -->
+            <div class="side-vertical-jp">永遠に</div>
+
+        </aside>
+
+    </main>
+
+    <!-- Мобильное меню -->
+    <aside class="mobile-nav">
+        <a href="index.html" class="active"><i class="fa-solid fa-house"></i></a>
+        <a href="feedback.html"><i class="fa-solid fa-comment-dots"></i></a>
+        <a href="cats.html"><i class="fa-solid fa-paw"></i></a>
+        <a href="works.html"><i class="fa-solid fa-feather"></i></a>
+        <a href="music.html"><i class="fa-solid fa-music"></i></a>
+    </aside>
+
+    <div id="themeToggle" title="Сменить тему">
+        <i class="fa-solid fa-moon" id="themeIcon"></i>
+    </div>
+
+    <button id="scrollTop" title="Наверх">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
