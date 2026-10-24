@@ -74,6 +74,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     window.addEventListener('load', checkScroll);
     window.addEventListener('scroll', checkScroll);
+
+    // --- ЭФФЕКТ СКРОЛЛА ДЛЯ МЕНЮ (Плавающее меню) ---
+    const topNav = document.querySelector('.top-nav');
+    if (topNav) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                topNav.classList.add('scrolled');
+            } else {
+                topNav.classList.remove('scrolled');
+            }
+        });
+    }
+
 });
 
 // --- КОШАЧИЙ ФАКТ ДНЯ ---

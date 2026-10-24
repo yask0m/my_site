@@ -10,275 +10,268 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Luxurious+Script&family=Noto+Sans+JP:wght@300;400;500;700&family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet"></head>
 <body>
 
-    <!-- ВЕРХНЕЕ МЕНЮ -->
-    <header class="top-nav">
-        <div class="nav-logo">夢</div>
-        <nav class="nav-links">
-            <a href="index.html" class="active">Главная</a>
-            <a href="feedback.html">Отзывы</a>
-            <a href="cats.html">Кошечки</a>
-            <a href="works.html">Галерея</a>
-            <a href="music.html">Музыка</a>
-        </nav>
-        <div class="nav-icons-right">
-            <a href="https://t.me/yaskim" target="_blank" class="nav-user">
-                <img src="https://i.pinimg.com/736x/97/19/ef/9719ef5065170cc64667f3db2b44e492.jpg" alt="User">
-            </a>
-            <button class="nav-icon-btn"><i class="fa-regular fa-envelope"></i></button>
-            <button class="nav-icon-btn"><i class="fa-regular fa-bell"></i></button>
-            <button class="nav-icon-btn accent"><i class="fa-solid fa-plus"></i></button>
-            <button class="nav-icon-btn"><i class="fa-solid fa-bars"></i></button>
+<!-- НОВЫЙ БЛОК: БЫСТРОЕ ЗНАКОМСТВО (по референсу) -->
+<section class="intro-hero">
+    <div class="intro-hero-container">
+        <div class="intro-text">
+            <span class="intro-tag">UX/UI · Личный сайт · 2026 · Будет обновляться</span>
+            <h1 class="intro-title">Привет, я <span class="intro-name">Yask</span></h1>
+            <p class="intro-subtitle">Недоучка, которая любит кошек и красивые фотографии.</p>
+            <p class="intro-desc">
+                Здесь можно найти мое местечко, где я часто прячусь от мыслей.
+                 Без длинных инструкций и правильных формулировок. 
+                Иногда можно начать с простого, чтоб найти вдохновение для своих идей.
+            </p>
+            <a href="#main-dashboard" class="intro-btn">Заглянуть в мой мир <i class="fa-solid fa-arrow-down"></i></a>
         </div>
-    </header>
+        <div class="intro-visual">
+            <!-- Замени ссылку на свою картинку (можно взять из твоей галереи) -->
+            <img src="https://i.pinimg.com/736x/97/19/ef/9719ef5065170cc64667f3db2b44e492.jpg" alt="Yask">
+            <div class="intro-visual-glow"></div>
+        </div>
+    </div>
+</section>
 
-    <!-- ОСНОВНАЯ СЕТКА -->
-    <main class="layout">
+<main class="layout" id="main-dashboard">
 
-        <!-- ЛЕВАЯ КОЛОНКА -->
-        <aside class="col-left">
-
-            <!-- Профиль -->
-            <div class="card profile-card">
-                <div class="profile-top">
-                    <div class="profile-avatar">
-                        <img src="https://i.pinimg.com/736x/97/19/ef/9719ef5065170cc64667f3db2b44e492.jpg" alt="Avatar">
-                    </div>
-                    <div class="profile-info">
-                        <h3 class="profile-name">Yask <i class="fa-solid fa-star"></i></h3>
-                        <p class="profile-sub">вечно где-то между<br>прошлым и настоящим</p>
-                        <span class="profile-online"><span class="dot"></span> онлайн</span>
-                    </div>
+    <!-- ВЕРХНЯЯ ПАНЕЛЬ (Профиль + Плеер) -->
+    <section class="top-profile-bar">
+        <div class="profile-info-minimal">
+            <img src="https://i.pinimg.com/736x/97/19/ef/9719ef5065170cc64667f3db2b44e492.jpg" alt="Avatar" class="avatar-large">
+            <div class="profile-text">
+                <h1>Yask <span class="status-dot"></span></h1>
+                <p>вечно где-то между прошлым и настоящим</p>
+            </div>
+        </div>
+        
+        <div class="mini-player-minimal">
+            <div class="player-left">
+                <div class="music-note"><i class="fa-solid fa-music"></i></div>
+                <div>
+                    <span class="track-name">kawaii kawaii</span>
+                    <span class="track-artist">by piki</span>
                 </div>
-                <div class="profile-rows">
-                    <div class="profile-row">
-                        <span class="profile-label">Статус</span>
-                        <span class="profile-tag">Творческая</span>
+            </div>
+            <div class="player-controls">
+                <button class="play-btn"><i class="fa-solid fa-pause"></i></button>
+            </div>
+        </div>
+    </section>
+
+           <!-- СЕКЦИЯ 1: Любимые персонажи (Стиль списка) -->
+    <section class="minimal-section">
+        <div class="section-header">
+            <h2>Мои фавориты <span class="jp-small">推し</span></h2>
+            <p>Те, кто запал в душу.</p>
+        </div>
+        
+        <div class="character-list">
+            
+            <!-- Персонаж 1 -->
+            <div class="character-row">
+                <div class="char-avatar">
+                    <img src="https://i.pinimg.com/736x/19/f6/70/19f670359fda2597ccf852ba79c5b6d0.jpg" alt="Character">
+                </div>
+                <div class="char-info">
+                    <div class="char-header">
+                        <span class="char-name">Макима</span>
                     </div>
-                    <div class="profile-row">
-                        <span class="profile-label">Роль</span>
-                        <span class="profile-tag">Мечтатель</span>
-                    </div>
-                    <div class="profile-row">
-                        <span class="profile-label">Настроение</span>
-                        <span class="profile-tag">^w^</span>
+                    <div class="char-stats">
+                        <span>Демон контроля</span>
+                        <span>Любит собак</span>
+                        <span>Симп демона Бензопилы</span>
+                        <span>и просто крутой антагонист</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Мини-плеер -->
-            <div class="card mini-player">
-                <div class="mini-player-top">
-                    <div class="mini-player-cover"><i class="fa-solid fa-music"></i></div>
-                    <div class="mini-player-info">
-                        <span class="mini-player-title">kawaii kawaii</span>
-                        <span class="mini-player-artist">by piki</span>
+            <!-- Персонаж 2 -->
+            <div class="character-row">
+                <div class="char-avatar">
+                    <img src="https://i.pinimg.com/736x/42/a7/07/42a7072e2f5fce151aad88c78badd8a1.jpg" alt="Character">
+                </div>
+                <div class="char-info">
+                    <div class="char-header">
+                        <span class="char-name">Донк (Данил Крышковец)</span>
+                        <span class="char-title">Киберспортсмен</span>
                     </div>
-                    <button class="icon-heart"><i class="fa-regular fa-heart"></i></button>
-                </div>
-                <div class="mini-player-progress">
-                    <span class="time">1:42</span>
-                    <div class="progress-bar"><div class="progress-fill"></div></div>
-                    <span class="time">3:28</span>
-                </div>
-                <div class="mini-player-controls">
-                    <button><i class="fa-solid fa-backward-step"></i></button>
-                    <button class="play-main"><i class="fa-solid fa-pause"></i></button>
-                    <button><i class="fa-solid fa-forward-step"></i></button>
+                    <div class="char-stats">
+                        <span>Рифлер Team Spirit</span>
+                        <span>Самый молодой MVP мейджора в истории</span>
+                        <span>агрессивный энтри‑фраггер</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- День рождения -->
-            <div class="card birthday-card">
-                <div class="birthday-header">
-                    <span class="birthday-label-top">День рождения</span>
-                    <i class="fa-solid fa-cake-candles"></i>
+            <!-- Персонаж 3 -->
+            <div class="character-row">
+                <div class="char-avatar">
+                    <img src="https://i.pinimg.com/736x/46/ca/84/46ca846fcf4c8c3da55b0e60aa88b058.jpg" alt="Character">
                 </div>
-                <div class="birthday-body">
-                    <span class="birthday-day">9</span>
-                    <span class="birthday-month">ноября</span>
-                </div>
-                <div class="birthday-footer">
-                    <span class="birthday-hint">♡ ждём с нетерпением! ♡</span>
+                <div class="char-info">
+                    <div class="char-header">
+                        <span class="char-name">Братишкин (Владимир Семенюк)</span>
+                        <span class="char-title">Стример</span>
+                    </div>
+                    <div class="char-stats">
+                        <span>SLAY KING 2023/2024</span>
+                        <span>Лидер 89SQUAD</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Цитата -->
-            <div class="card quote-card">
-                <p class="quote-text">«Делай то, что любишь,<br>и однажды это станет<br>твоей жизнью.»</p>
-                <p class="quote-jp">好きなことで生きていく</p>
-            </div>
-
-        </aside>
-
-        <!-- ЦЕНТР -->
-        <section class="col-center">
-
-            <!-- HERO -->
-            <div class="card hero-card">
-                <div class="hero-image">
-                    <img src="angel.png" alt="Anime Girl">
+            <!-- Персонаж 4 -->
+            <div class="character-row">
+                <div class="char-avatar">
+                    <img src="https://i.pinimg.com/736x/79/f6/2d/79f62dd7932c4d467155950b3202771a.jpg" alt="Character">
                 </div>
-                <div class="hero-overlay"></div>
-                <div class="hero-content">
-                    <span class="hero-kanji">夢</span>
-                    <h1 class="hero-title">
-                        let's be <span class="plus">+</span><br>
-                        <em>friends</em>
-                    </h1>
-                    <p class="hero-desc">
-                        <i class="fa-solid fa-clover"></i> just a girl who likes sweet things and cake.
-                    </p>
-                </div>
-                <span class="hero-jp-vertical">ずっと、一緒にいたい</span>
-            </div>
-
-            <!-- СЕТКА КАРТОЧЕК — 3 независимые колонки -->
-            <div class="cards-grid">
-
-                <!-- Колонка 1 -->
-                <div class="cards-col">
-                    <div class="card about-card">
-                        <div class="card-header">
-                            <h3><i class="fa-solid fa-star"></i> Обо мне</h3>
-                        </div>
-                        <p class="card-text">Я мечтаю о многом и верю в красивые моменты.</p>
-                        <div class="tag-row">
-                            <span class="tag">Аниме</span>
-                            <span class="tag">Музыка</span>
-                            <span class="tag">Манга</span>
-                            <span class="tag">Сладости</span>
-                            <span class="tag">Дождь</span>
-                            <span class="tag">Кошки</span>
-                        </div>
+                <div class="char-info">
+                    <div class="char-header">
+                        <span class="char-name">Гым Сон Джэ</span>
                     </div>
-
-                    <div class="card fact-card">
-                        <div class="card-header">
-                            <h3><i class="fa-solid fa-cat"></i> Факт дня <span class="jp-small">猫</span></h3>
-                        </div>
-                        <div class="fact-content">
-                            <div class="fact-icon"><i class="fa-solid fa-cat"></i></div>
-                            <p id="catFact" class="fact-text">Загрузка...</p>
-                        </div>
-                        <button id="newFactBtn" class="mini-btn">
-                            <i class="fa-solid fa-rotate"></i> Новый
-                        </button>
+                    <div class="char-stats">
+                        <span>Дотер</span>
+                        <span>Нищеброд с айфоном</span>
+                        <span>Любит лапшу</span>
+                        <span>Главный антагонист</span>
                     </div>
-                </div>
-
-                <!-- Колонка 2 -->
-                <div class="cards-col">
-                    <div class="card notes-card">
-                        <div class="card-header">
-                            <h3><i class="fa-solid fa-pen"></i> Заметки <span class="jp-small">ノート</span></h3>
-                            <span class="mood-date">сейчас</span>
-                        </div>
-                        <ul class="notes-list">
-                            <li><i class="fa-solid fa-moon"></i><span>Сегодня луна была особенно красивой.</span></li>
-                            <li><i class="fa-solid fa-cat"></i><span>Мой кот снова спит на клавиатуре. ^w^</span></li>
-                            <li><i class="fa-solid fa-music"></i><span>Слушаю kawaii kawaii весь день.</span></li>
-                            <li><i class="fa-solid fa-star"></i><span>Хочу посмотреть новый аниме-сезон.</span></li>
-                        </ul>
-                    </div>
-
-                    <div class="card gallery-mini-card">
-                        <div class="card-header">
-                            <h3><i class="fa-regular fa-image"></i> Галерея <span class="jp-small">作品</span></h3>
-                            <a href="works.html">Все →</a>
-                        </div>
-                        <div class="gallery-mini">
-                            <img src="https://i.pinimg.com/736x/92/74/35/927435e7ad4c301eea0b18de6740e740.jpg" alt="">
-                            <img src="catt.jpg" alt="">
-                            <img src="https://i.pinimg.com/736x/71/31/e2/7131e2a60fdc64a0f6c1dd07cbc8ec4d.jpg" alt="">
-                            <img src="https://i.pinimg.com/1200x/ab/93/06/ab9306bd7a73b975d4379823caff45ff.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Колонка 3 -->
-                <div class="cards-col">
-                    <div class="card music-card">
-                        <div class="card-header">
-                            <h3><i class="fa-solid fa-music"></i> Сейчас играет</h3>
-                        </div>
-                        <div class="music-info">
-                            <div class="music-cover"><i class="fa-solid fa-music"></i></div>
-                            <div>
-                                <span class="music-title">kawaii kawaii</span>
-                                <span class="music-artist">by piki</span>
-                            </div>
-                        </div>
-                        <div class="music-progress">
-                            <span class="time">1:42</span>
-                            <div class="progress-bar"><div class="progress-fill"></div></div>
-                            <span class="time">3:28</span>
-                        </div>
-                        <div class="music-controls">
-                            <button><i class="fa-solid fa-backward-step"></i></button>
-                            <button class="play-main"><i class="fa-solid fa-pause"></i></button>
-                            <button><i class="fa-solid fa-forward-step"></i></button>
-                            <button class="heart-btn"><i class="fa-regular fa-heart"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="card media-card">
-                        <div class="media-collage">
-                            <img src="https://i.pinimg.com/736x/86/98/aa/8698aa00cd136ac34e628525097d9b67.jpg" alt="">
-                            <img src="https://i.pinimg.com/736x/39/50/83/395083543940bdd0cf8cd9ce36986295.jpg" alt="">
-                            <img src="https://i.pinimg.com/736x/ca/0b/49/ca0b498acf1d50328a1e82da1fd59455.jpg" alt="">
-                            <img src="https://i.pinimg.com/736x/41/4c/36/414c36d285d39fd68883fa45a52402f0.jpg" alt="">
-                            <img src="https://i.pinimg.com/736x/54/f7/b5/54f7b5b711bfaa30ad44fefb198fc1ca.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- ПРАВАЯ КОЛОНКА -->
-        <aside class="col-right">
-
-            <!-- Карточка-цитата с картинкой -->
-            <div class="card side-quote-card">
-                <img src="https://i.pinimg.com/1200x/50/18/bb/5018bb7fb9d5b1cc622db67d7bb0ca31.jpg" alt="">
-                <div class="side-quote-overlay"></div>
-                <p class="side-quote-text">«Иногда самые красивые моменты — это просто тишина.»</p>
-            </div>
-
-            <!-- Статус -->
-            <div class="card stats-card">
-                <div class="stats-row">
-                    <span class="stats-dot"></span>
-                    <span class="stats-label">Онлайн</span>
-                </div>
-                <div class="stats-big">
-                    <span class="stats-num">2026</span>
-                    <span class="stats-sub">Год активности</span>
                 </div>
             </div>
 
-            <!-- Кнопки -->
-            <div class="side-actions">
-                <button class="side-action">
-                    <i class="fa-solid fa-user-plus"></i>
-                    <span>Подписчики</span>
-                </button>
-                <button class="side-action">
-                    <i class="fa-solid fa-comment"></i>
-                    <span>Сообщения</span>
-                </button>
-                <button class="side-action">
+            <!-- Персонаж 5 -->
+            <div class="character-row">
+                <div class="char-avatar">
+                    <img src="https://i.pinimg.com/1200x/92/49/3d/92493dd520153d6d22923eb647175775.jpg" alt="Character">
+                </div>
+                <div class="char-info">
+                    <div class="char-header">
+                        <span class="char-name">Ханако</span>
+                    </div>
+                    <div class="char-stats">
+                        <span>Хранитель туалета №3</span>
+                        <span>Призрак</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+<!-- СЕКЦИЯ 2: Мысли и Текущие проекты -->
+<section class="minimal-section">
+
+    <div class="notes-layout">
+
+        <!-- Левая колонка: Мысли -->
+        <div class="notes-column">
+            <h2 class="section-header-inline">Мысли <span class="jp-small">ノート</span></h2>
+            <p class="section-sub-inline">То, что происходит прямо сейчас.</p>
+
+            <div class="note-line">
+                <div class="note-border"></div>
+                <div class="note-content">
+                    <i class="fa-solid fa-moon"></i>
+                    <span>Сегодня луна была особенно красивой.</span>
+                </div>
+            </div>
+            <div class="note-line">
+                <div class="note-border"></div>
+                <div class="note-content">
+                    <i class="fa-solid fa-star"></i>
+                    <span>Хочу посмотреть новый аниме-сезон.</span>
+                </div>
+            </div>
+            <div class="note-line">
+                <div class="note-border"></div>
+                <div class="note-content">
+                    <i class="fa-solid fa-cat"></i>
+                    <span>Мой кот снова спит на клавиатуре. ^w^</span>
+                </div>
+            </div>
+            <div class="note-line">
+                <div class="note-border"></div>
+                <div class="note-content">
                     <i class="fa-solid fa-heart"></i>
-                    <span>Избранное</span>
-                </button>
+                    <span>Пью чай с корицей и слушаю дождь.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Правая колонка: Сейчас в работе -->
+        <div class="project-block">
+            <h2 class="section-header-inline">Сейчас в работе <span class="jp-small">進行中</span></h2>
+            <p class="section-sub-inline">Проекты, которые я может быть доделаю.</p>
+
+            <div class="project-content-wrapper">
+                <div class="project-item">
+                    <div class="project-top">
+                        <span class="project-tag">Веб-дизайн</span>
+                        <span class="project-percent">50%</span>
+                    </div>
+                    <p>Изучаю для своего развития.</p>
+                    <div class="project-progress"><div class="progress-fill" style="width: 70%;"></div></div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-top">
+                        <span class="project-tag">Борьба</span>
+                        <span class="project-percent">30%</span>
+                    </div>
+                    <p>Борюсь с ленивостью.</p>
+                    <div class="project-progress"><div class="progress-fill" style="width: 30%;"></div></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+</main> <!-- Закрываем main -->
+
+       <!-- СЕКЦИЯ 4: Обо мне (Текст + Галерея) -->
+    <section class="minimal-section about-section">
+        <div class="about-grid">
+            
+            <!-- Левая часть: Текст -->
+            <div class="about-text">
+                <div class="section-header" style="margin-bottom: 20px;">
+                    <h2>Обо мне <span class="jp-small">自己紹介</span></h2>
+                </div>
+                
+                <p class="about-desc">
+                    <strong>INFP в своем естественном состоянии.</strong> Вечный синдром самозванца, 
+                    тревожный фон и ленивая недоучка — всё это прячется за красивой обложкой любого человека.
+                </p>
+                
+                <p class="about-desc">
+                    Здесь я собираю то, что помогает мне не сойти с ума: аниме, музыка, 
+                     и случайные мысли, которые приходят в голову поздней ночью, 
+                    когда весь мир спит.
+                </p>
+                
+                <!-- Теги-увлечения -->
+                <div class="tag-row">
+                    <span class="tag">Аниме</span>
+                    <span class="tag">Музыка</span>
+                    <span class="tag">Дизайн</span>
+                    <span class="tag">Кислости</span>
+                    <span class="tag">Дождь</span>
+                    <span class="tag">Кошки</span>
+                </div>
             </div>
 
-            <!-- Вертикальный текст -->
-            <div class="side-vertical-jp">永遠に</div>
+            <!-- Правая часть: Коллаж из картинок -->
+            <div class="about-gallery">
+                <img src="https://i.pinimg.com/736x/9a/ab/46/9aab46c0ff554c9898e22eb5223937e8.jpg" alt="Art 1" class="gallery-img-main">
+                <div class="gallery-sub">
+                    <img src="https://i.pinimg.com/736x/e6/1f/81/e61f810350d7d52562f02a37e6cdd57f.jpg" alt="Art 2">
+                    <img src="https://i.pinimg.com/1200x/f4/21/21/f421219e0db9b16d94e75a9e63cb18f1.jpg" alt="Art 3">
+                </div>
+            </div>
 
-        </aside>
-
-    </main>
+        </div>
+    </section>
 
     <!-- Мобильное меню -->
     <aside class="mobile-nav">
@@ -289,6 +282,8 @@
         <a href="music.html"><i class="fa-solid fa-music"></i></a>
     </aside>
 
+        <!-- ... (твоя секция "Обо мне" и мобильное меню) ... -->
+
     <div id="themeToggle" title="Сменить тему">
         <i class="fa-solid fa-moon" id="themeIcon"></i>
     </div>
@@ -297,6 +292,39 @@
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
+    <!-- ФУТЕР (Подвал сайта) - ВСТАВЬ ЕГО СЮДА -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            
+            <!-- Левая часть: Логотип и копирайт -->
+            <div class="footer-brand">
+                <div class="footer-logo">夢</div>
+                <p>© 2026 Yask. Сделано с любовью к сладостям и дождю.</p>
+            </div>
+
+            <!-- Правая часть: Ссылки на соцсети -->
+            <div class="footer-socials">
+                <p class="socials-title">Связаться со мной:</p>
+                <div class="social-links">
+                    <a href="https://t.me/yaskim" target="_blank" title="Telegram">
+                        <i class="fa-brands fa-telegram"></i>
+                    </a>
+                    <a href="#" target="_blank" title="Pinterest">
+                        <i class="fa-brands fa-pinterest"></i>
+                    </a>
+                    <a href="#" target="_blank" title="VK">
+                        <i class="fa-brands fa-vk"></i>
+                    </a>
+                    <a href="#" target="_blank" title="Discord">
+                        <i class="fa-brands fa-discord"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Скрипт подключаем самым последним -->
     <script src="script.js"></script>
 </body>
 </html>

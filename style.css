@@ -64,12 +64,22 @@ body::before {
     justify-content: space-between;
     align-items: center;
     padding: 16px 36px;
-    background: transparent;
-    border-bottom: 1px solid var(--card-border);
-    position: sticky;
+    background: transparent; /* Убираем фон */
+    border-bottom: 1px solid transparent; /* Убираем границу */
+    position: fixed; /* Делаем плавающим */
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
-    backdrop-filter: blur(12px);
+    transition: all 0.4s ease;
+}
+
+/* Когда пользователь скроллит вниз, меню плавно появляется с фоном */
+.top-nav.scrolled {
+    background: rgba(16, 13, 16, 0.85); /* Твой темный фон с прозрачностью */
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--card-border);
+    padding: 12px 36px; /* Чуть уменьшаем при скролле */
 }
 
 .nav-logo {
@@ -1140,4 +1150,1464 @@ body[data-theme="light"] #themeToggle:hover i { color: #fcfdf9; }
 
 .card:hover::after {
     opacity: 1;
+}
+/* ============================================ */
+/* НОВЫЙ ИНТРО-БЛОК (Сглаженный переход)        */
+/* ============================================ */
+
+.intro-hero {
+    position: relative;
+    padding: 60px 36px 40px; /* Уменьшили нижний отступ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh; /* Теперь блок занимает не почти весь экран, а чуть больше половины */
+    background: radial-gradient(circle at 70% 40%, rgba(200, 160, 176, 0.08) 0%, transparent 60%);
+    overflow: hidden;
+    z-index: 2;
+    /* Добавляем плавный переход к фону body */
+    border-bottom: 1px solid transparent; 
+    margin-bottom: -20px; /* Немного подтягиваем сетку наверх */
+}
+
+/* Градиентная прослойка, которая соединяет Hero и Main */
+.intro-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(180deg, transparent 0%, var(--dark-bg) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.intro-hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    width: 100%;
+    gap: 60px;
+    position: relative;
+    z-index: 2; /* Чтобы контент был выше градиента */
+}
+
+/* ... (Остальные стили intro-text, intro-title, intro-btn оставляем без изменений) ... */
+/* Если ты их уже добавила, просто убедись, что они на месте */
+.intro-text {
+    flex: 1;
+    max-width: 600px;
+}
+
+.intro-tag {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--lavender);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0.7;
+}
+
+.intro-title {
+    font-size: 64px;
+    line-height: 1.1;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.intro-name {
+    font-family: 'Luxurious Script', cursive;
+    color: var(--rose);
+    font-size: 80px;
+    font-weight: 400;
+    text-shadow: 0 0 30px rgba(200, 160, 176, 0.4);
+}
+
+.intro-subtitle {
+    font-size: 20px;
+    color: var(--cream);
+    margin-bottom: 25px;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.intro-desc {
+    font-size: 15px;
+    color: var(--lavender);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.intro-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--rose);
+    color: var(--midnight);
+    padding: 16px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.intro-btn:hover {
+    background: var(--lavender);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(200, 160, 176, 0.3);
+}
+
+.intro-btn i {
+    font-size: 12px;
+}
+
+/* Визуальная часть */
+.intro-visual {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+}
+
+.intro-visual img {
+    width: 100%;
+    max-width: 400px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 30px;
+    position: relative;
+    z-index: 2;
+    border: 1px solid var(--border-soft);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Свечение за картинкой */
+.intro-visual-glow {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    background: var(--rose);
+    filter: blur(80px);
+    opacity: 0.2;
+    border-radius: 50%;
+    z-index: 1;
+    animation: pulseGlow 6s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    0% { transform: scale(0.8); opacity: 0.15; }
+    100% { transform: scale(1.1); opacity: 0.3; }
+}
+
+/* Адаптация для мобильных */
+@media screen and (max-width: 992px) {
+    .intro-hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .intro-title { font-size: 48px; }
+    .intro-name { font-size: 60px; }
+    
+    .intro-visual img {
+        height: 400px;
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .intro-hero { padding: 40px 20px; min-height: auto; }
+    .intro-title { font-size: 36px; }
+    .intro-name { font-size: 48px; }
+    .intro-subtitle { font-size: 16px; }
+    .intro-desc { font-size: 14px; }
+    .intro-visual img { height: 300px; max-width: 250px; }
+}
+/* Плавное появление верхнего меню при скролле (опционально, но красиво) */
+.top-nav {
+    /* ... твои старые стили ... */
+    transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+/* Когда мы скроллим, меню становится чуть темнее, чтобы сливаться с дашбордом */
+.top-nav.scrolled {
+    background: rgba(16, 13, 16, 0.9); /* Твой --dark-bg с прозрачностью */
+    border-bottom-color: var(--card-border);
+}
+/* --- НОВОЕ ПЛАВАЮЩЕЕ МЕНЮ --- */
+.floating-nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 8px 20px;
+    background: rgba(26, 20, 26, 0.4); /* Очень прозрачный фон */
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-soft);
+    border-radius: 40px;
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+.floating-nav:hover {
+    background: rgba(26, 20, 26, 0.8); /* Проявляется при наведении */
+}
+
+.nav-logo {
+    font-family: 'Noto Sans JP', serif;
+    font-size: 20px;
+    color: var(--rose);
+    font-weight: 400;
+}
+
+.nav-links-mini {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links-mini a {
+    color: var(--lavender);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.nav-links-mini a:hover, 
+.nav-links-mini a.active {
+    color: #fff;
+    opacity: 1;
+}
+
+.nav-user-mini img {
+    width: 30px; 
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid var(--lavender);
+    object-fit: cover;
+}
+
+/* На мобильных прячем тексты, оставляем только иконки или скрываем вовсе */
+@media screen and (max-width: 768px) {
+    .floating-nav { display: none; } /* Или переделать под мобилку */
+}
+/* --- МИНИМАЛИСТИЧНЫЙ ДИЗАЙН --- */
+
+.layout {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px; /* Большие отступы между секциями */
+}
+
+/* Заголовки секций */
+.section-header {
+    margin-bottom: 30px;
+}
+
+.section-header h2 {
+    font-size: 32px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.section-header p {
+    color: var(--lavender);
+    font-size: 15px;
+    opacity: 0.8;
+}
+
+/* Горизонтальная прокрутка (Слайдер) */
+.horizontal-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    scroll-snap-type: x mandatory;
+    /* Скрываем ползунок скролла для красоты */
+    scrollbar-width: none; 
+}
+.horizontal-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-card {
+    min-width: 280px;
+    max-width: 280px;
+    height: 380px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    scroll-snap-align: start;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.scroll-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.scroll-card:hover img {
+    transform: scale(1.05);
+}
+
+.scroll-card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 20px 20px;
+    background: linear-gradient(0deg, rgba(16, 13, 16, 0.95) 0%, transparent 100%);
+    color: #fff;
+}
+
+.scroll-card-content h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.scroll-card-content p {
+    font-size: 13px;
+    color: var(--lavender);
+    line-height: 1.4;
+}
+
+/* Заметки (вместо карточек) */
+.notes-grid-minimal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.note-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-soft);
+    font-size: 16px;
+    color: var(--lavender);
+    line-height: 1.5;
+}
+
+.note-item i {
+    color: var(--rose);
+    font-size: 16px;
+    margin-top: 3px;
+}
+
+/* Факт дня минималистичный */
+.fact-minimal {
+    flex-direction: column;
+    gap: 12px;
+    border-bottom: none; /* Убираем линию, чтобы выделить */
+    background: rgba(200, 160, 176, 0.05);
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid var(--border-soft);
+}
+
+.fact-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.fact-minimal p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--lavender);
+}
+
+/* Адаптив для мобилок */
+@media screen and (max-width: 768px) {
+    .notes-grid-minimal {
+        grid-template-columns: 1fr;
+    }
+    .layout {
+        gap: 50px;
+        padding-top: 20px;
+    }
+    .section-header h2 {
+        font-size: 26px;
+    }
+}
+/* ============================================ */
+/* НОВЫЙ МИНИМАЛИСТИЧНЫЙ ДИЗАЙН                 */
+/* ============================================ */
+
+.layout {
+    max-width: 1100px; /* Сузили контент для красоты */
+    margin: 0 auto;
+    padding: 30px 20px 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 70px; /* Большие отступы между блоками */
+}
+
+/* --- ВЕРХНЯЯ ПАНЕЛЬ (Профиль и Плеер) --- */
+.top-profile-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.profile-info-minimal {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.avatar-large {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid var(--lavender);
+    object-fit: cover;
+}
+
+.profile-text h1 {
+    font-size: 28px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #4ade80; /* Зеленый онлайн */
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+}
+
+.profile-text p {
+    font-size: 14px;
+    color: var(--lavender);
+    opacity: 0.8;
+}
+
+/* Мини-плеер */
+.mini-player-minimal {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(200, 160, 176, 0.05);
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 1px solid var(--border-soft);
+}
+
+.player-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.music-note {
+    width: 40px;
+    height: 40px;
+    background: var(--rose);
+    color: var(--midnight);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.track-name {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.track-artist {
+    display: block;
+    color: var(--lavender);
+    font-size: 12px;
+}
+
+.play-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--lavender);
+    background: transparent;
+    color: var(--lavender);
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.play-btn:hover {
+    background: var(--lavender);
+    color: var(--midnight);
+}
+
+
+/* --- ЗАГОЛОВКИ СЕКЦИЙ --- */
+.section-header {
+    margin-bottom: 30px;
+}
+
+.section-header h2 {
+    font-size: 32px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.section-header p {
+    color: var(--lavender);
+    font-size: 15px;
+    opacity: 0.8;
+}
+
+/* --- КАРУСЕЛЬ (Скролл) --- */
+.horizontal-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; 
+}
+.horizontal-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-card {
+    min-width: 300px;
+    max-width: 300px;
+    height: 400px;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    scroll-snap-align: start;
+    cursor: pointer;
+    background: var(--dark-card);
+    border: 1px solid var(--border-soft);
+    transition: 0.3s ease;
+}
+
+.scroll-card:hover {
+    border-color: var(--rose);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s ease;
+    opacity: 0.8;
+}
+
+.scroll-card:hover img {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+.scroll-card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 25px 25px;
+    background: linear-gradient(0deg, rgba(16, 13, 16, 0.98) 0%, rgba(16, 13, 16, 0.8) 50%, transparent 100%);
+}
+
+.scroll-card-content h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.scroll-card-content p {
+    font-size: 14px;
+    color: var(--lavender);
+    line-height: 1.5;
+}
+
+/* --- АДАПТИВ --- */
+@media screen and (max-width: 900px) {
+    .top-profile-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .mini-player-minimal {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .notes-layout {
+        grid-template-columns: 1fr;
+    }
+}
+/* ============================================ */
+/* БАННЕР С ЦИТАТОЙ                             */
+/* ============================================ */
+
+.quote-banner {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Высота баннера */
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    border: 1px solid var(--border-soft);
+}
+
+.quote-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%; /* Чтобы лицо не обрезалось */
+    z-index: 1;
+}
+
+.quote-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(16, 13, 16, 0.9) 0%, rgba(16, 13, 16, 0.4) 50%, rgba(16, 13, 16, 0.8) 100%);
+    z-index: 2;
+}
+
+.quote-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.quote-content p {
+    font-family: 'Luxurious Script', cursive; /* Твой красивый рукописный шрифт */
+    font-size: 42px;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.quote-content .quote-jp {
+    font-family: 'Noto Sans JP', serif;
+    font-size: 14px;
+    color: var(--rose);
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+/* Адаптив для телефонов */
+@media screen and (max-width: 768px) {
+    .quote-banner {
+        height: 300px;
+    }
+    .quote-content p {
+        font-size: 28px;
+    }
+}
+
+/* --- СКРЫВАЕМ СТАРЫЕ ЭЛЕМЕНТЫ (на всякий случай) --- */
+.col-right, .side-actions, .stats-card, .side-quote-card {
+    display: none !important;
+}
+/* ============================================ */
+/* СПИСОК ПЕРСОНАЖЕЙ (В два столбика)           */
+/* ============================================ */
+
+.character-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Два столбика равной ширины */
+    gap: 20px; /* Расстояние между карточками по вертикали и горизонтали */
+    background: transparent;
+    border: none;
+    max-width: 100%; /* Убираем ограничение по ширине, чтобы заполнить экран */
+}
+
+.character-row {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+    padding: 20px;
+    background: rgba(26, 20, 26, 0.4); /* Легкий фон карточки, чтобы выделить её */
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(200, 160, 176, 0.05); /* Тонкая рамка */
+}
+
+/* Эффект при наведении */
+.character-row:hover {
+    background: transparent;
+    border-color: rgba(200, 160, 176, 0.3); /* Рамка становится ярче */
+    transform: translateY(-3px); /* Поднимается */
+    box-shadow: 0 8px 24px rgba(200, 160, 176, 0.1); /* Мягкая тень */
+}
+
+/* Аватарка — делаем чуть меньше, чтобы влезла в половинку экрана */
+.char-avatar {
+    width: 80px;  
+    height: 80px; 
+    border-radius: 12px; 
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1px solid rgba(200, 160, 176, 0.15);
+}
+
+.char-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.4s ease;
+    opacity: 0.9;
+}
+
+.character-row:hover .char-avatar img {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Информация */
+.char-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0; /* Важно, чтобы длинный текст не вылезал за пределы */
+}
+
+.char-header {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Имя — чуть уменьшили, чтобы влезало в столбик */
+.char-name {
+    font-size: 18px; 
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.3px;
+}
+
+/* Титул — элегантный шрифт с засечками */
+.char-title {
+    font-family: 'Montserrat', sans-serif; /* Используем твой шрифт */
+    font-style: italic; /* Делаем курсивом для легкости */
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--rose);
+    opacity: 0.9;
+    letter-spacing: 0.5px;
+}
+
+/* Статы */
+.char-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--lavender);
+    opacity: 0.6;
+}
+
+.char-stats span:not(:last-child)::after {
+    content: '·';
+    margin-left: 8px;
+    opacity: 0.5;
+}
+
+/* Скрываем правую часть, так как мы её убрали из HTML */
+.char-actions {
+    display: none !important; 
+}
+
+/* ============================================ */
+/* АДАПТИВ: На телефонах делаем один столбик    */
+/* ============================================ */
+@media screen and (max-width: 900px) {
+    .character-list {
+        grid-template-columns: 1fr; /* Один столбик */
+        gap: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .character-row {
+        padding: 15px;
+        gap: 15px;
+    }
+    .char-avatar {
+        width: 70px;
+        height: 70px;
+    }
+    .char-name {
+        font-size: 16px;
+    }
+    .char-title {
+        font-size: 18px;
+    }
+    .char-stats {
+        display: none; /* На мобильных прячем статы */
+    }
+}
+/* ============================================ */
+/* МОБИЛЬНАЯ ВЕРСИЯ (Для списка персонажей)     */
+/* ============================================ */
+
+@media screen and (max-width: 768px) {
+    /* Контейнер списка */
+    .character-list {
+        gap: 12px; /* Чуть больше отступа между карточками */
+    }
+
+    /* Сама карточка */
+    .character-row {
+        flex-direction: row; /* Оставляем в строку, но с меньшими отступами */
+        align-items: center;
+        gap: 15px;
+        padding: 12px 15px; /* Уменьшаем внутренние отступы */
+        border-radius: 16px;
+        background: rgba(200, 160, 176, 0.03); /* Легкий фон для выделения на телефоне */
+        border-bottom: none; /* Убираем линии, они мешают на мобилках */
+    }
+
+    /* Аватарка — делаем чуть меньше, чтобы влезало больше текста */
+    .char-avatar {
+        width: 70px;
+        height: 70px;
+        border-radius: 12px; /* Оставляем скругленные углы */
+    }
+
+    /* Информация */
+    .char-info {
+        gap: 4px; /* Уменьшаем зазор между именем и титулом */
+    }
+
+    /* Имя — главное, что видит пользователь */
+    .char-name {
+        font-size: 16px; /* Немного уменьшаем, чтобы длинные имена влезали */
+        line-height: 1.2;
+    }
+
+    /* Титул — показываем, но делаем меньше */
+    .char-title {
+        font-size: 18px;
+        line-height: 1.2;
+    }
+
+    /* СТАТЫ (Element: Dark и т.д.) — ПОЛНОСТЬЮ СКРЫВАЕМ */
+    /* На телефоне они создают визуальный шум и переносят строку */
+    .char-stats {
+        display: none; 
+    }
+
+    /* Заголовок секции (Мои фавориты) — делаем аккуратнее */
+    .section-header h2 {
+        font-size: 26px;
+    }
+    .section-header p {
+        font-size: 14px;
+    }
+}
+/* Убираем нижнее меню на телефоне, так как у нас есть верхнее */
+@media screen and (max-width: 768px) {
+    .mobile-nav {
+        display: none !important; 
+    }
+}
+    /* СТАТЫ (описания) — НЕ СКРЫВАЕМ, а делаем аккуратными */
+    .char-stats {
+        display: flex; /* Возвращаем отображение */
+        flex-direction: column; /* На телефоне лучше в столбик */
+        gap: 4px;
+        font-size: 11px; /* Делаем шрифт мелким, чтобы влезало */
+        color: var(--lavender);
+        opacity: 0.7;
+        margin-top: 4px;
+    }
+
+    /* Убираем точки-разделители на телефоне, так как текст идет в столбик */
+    .char-stats span::after {
+        display: none;
+    }
+    @media screen and (max-width: 768px) {
+    .character-list {
+        gap: 0; /* Убираем отступы, будем использовать линии */
+    }
+
+    .character-row {
+        flex-direction: row;
+        align-items: flex-start; /* Выравниваем по верхнему краю, так как текста много */
+        gap: 15px;
+        padding: 15px 0; /* Отступы только сверху и снизу */
+        background: transparent; /* Убираем плашки */
+        border-radius: 0;
+        border-bottom: 1px solid rgba(200, 160, 176, 0.08); /* Тонкая линия-разделитель */
+    }
+
+    /* Убираем линию у последнего элемента */
+    .character-row:last-child {
+        border-bottom: none;
+    }
+
+    .char-avatar {
+        width: 60px; /* Чуть уменьшили, чтобы больше места для текста */
+        height: 60px;
+        border-radius: 10px;
+        margin-top: 2px; /* Выравниваем с именем */
+    }
+
+    .char-info {
+        gap: 2px;
+    }
+
+    .char-name {
+        font-size: 16px;
+        line-height: 1.3;
+    }
+
+    .char-title {
+        font-size: 16px; /* Чуть уменьшили рукописный шрифт */
+        line-height: 1.2;
+        display: block; /* Переносим на новую строку, если не влезает */
+        margin-top: 2px;
+    }
+
+    /* Текст описания */
+    .char-stats {
+        display: flex;
+        flex-direction: column; /* В столбик, чтобы читалось */
+        gap: 2px;
+        font-size: 11px;
+        color: var(--lavender);
+        opacity: 0.6;
+        margin-top: 6px;
+        line-height: 1.4;
+    }
+
+    /* Прячем точки между статами */
+    .char-stats span:not(:last-child)::after {
+        content: ''; 
+        margin: 0;
+    }
+    
+    /* Заголовок секции */
+    .section-header h2 {
+        font-size: 24px;
+    }
+}
+
+
+
+
+/* Адаптив для телефонов */
+@media screen and (max-width: 768px) {
+    .notes-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .project-block {
+        padding-top: 30px;
+        border-top: 1px solid var(--border-soft);
+    }
+    .project-content-wrapper {
+        padding-left: 0;
+        border-left: none; 
+    }
+}
+/* ============================================ */
+/* ФИНАЛЬНЫЙ БЛОК: ЗАМЕТКИ И ПРОЕКТЫ            */
+/* ============================================ */
+
+/* Сетка из двух колонок */
+.notes-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 180px; /* Расстояние между колонками. Если хочешь ближе — уменьши до 40px */
+    align-items: start; /* Жестко прижимаем обе колонки к верху */
+}
+
+/* --- ЛЕВАЯ КОЛОНКА (ЗАМЕТКИ) --- */
+.notes-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0; 
+}
+
+.note-line {
+    display: flex;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-soft);
+    transition: 0.3s ease;
+}
+
+.note-line:last-child {
+    border-bottom: none;
+}
+
+.note-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: var(--lavender);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.note-content i {
+    color: var(--rose);
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.note-line:hover {
+    transform: translateX(5px);
+}
+.note-line:hover .note-content {
+    color: #fff;
+}
+
+/* --- ПРАВАЯ КОЛОНКА (ПРОЕКТЫ) --- */
+
+/* Заголовок справа */
+.section-header-inline {
+    font-size: 32px; 
+    font-weight: 500;
+    color: #fff;
+    margin: 0 0 30px 0; /* Сверху 0, снизу 30px */
+    padding: 0;
+    line-height: 1.2;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+/* Сама колонка проектов (без лишних отступов) */
+.project-block {
+    padding: 0; 
+    margin: 0;
+    border: none;
+}
+
+/* Обертка с линией (начинается строго под заголовком) */
+.project-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding-left: 30px; 
+    border-left: 1px solid var(--border-soft); /* Линия только здесь */
+}
+
+/* Элементы проектов */
+.project-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.project-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-tag {
+    font-size: 14px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.project-percent {
+    font-size: 12px;
+    color: var(--rose);
+    font-family: 'Noto Sans JP', serif;
+}
+
+.project-item p {
+    font-size: 13px;
+    color: var(--lavender);
+    line-height: 1.4;
+    opacity: 0.7;
+}
+
+/* Полоска прогресса */
+.project-progress {
+    width: 100%;
+    height: 3px;
+    background: var(--border-soft);
+    border-radius: 10px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+.project-progress .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--rose), var(--lavender));
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(200, 160, 176, 0.4);
+}
+
+/* Скрываем старый заголовок, если он остался в HTML */
+.project-header {
+    display: none !important;
+}
+
+/* Подзаголовок для правой колонки (такой же, как слева) */
+.section-sub-inline {
+    color: var(--lavender);
+    font-size: 15px;
+    opacity: 0.8;
+    margin: -15px 0 30px 0; /* Отрицательный верхний отступ подтягивает ближе к заголовку */
+    line-height: 1.5;
+}
+
+/* Адаптив для телефонов */
+@media screen and (max-width: 768px) {
+    .notes-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .project-block {
+        padding-top: 30px;
+        border-top: 1px solid var(--border-soft);
+    }
+    .project-content-wrapper {
+        padding-left: 0;
+        border-left: none; 
+    }
+}
+
+/* Адаптив: на телефонах ставим друг под другом */
+@media screen and (max-width: 768px) {
+    .notes-layout {
+        flex-direction: column;
+    }
+}
+/* ============================================ */
+/* СЕКЦИЯ "ОБО МНЕ" (Финальный дизайн)          */
+/* ============================================ */
+
+.about-section {
+    position: relative;
+    margin-top: 80px; 
+    padding-top: 100px; /* Большой отступ сверху */
+    padding-bottom: 80px;
+    padding-left: 40px; /* Сдвигаем весь блок вправо от левого края экрана */
+    padding-right: 40px;
+    
+    background: linear-gradient(180deg, transparent 0%, rgba(200, 160, 176, 0.06) 15%, rgba(200, 160, 176, 0.06) 100%);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Текст чуть уже, картинки чуть шире */
+    gap: 60px; 
+    align-items: start; 
+}
+
+/* Левая часть с текстом */
+.about-text {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px; 
+    position: relative; /* Для позиционирования декоративной линии */
+    padding-left: 30px; /* Отступ для линии */
+}
+
+/* Декоративная вертикальная линия слева от текста */
+.about-text::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, var(--rose) 0%, transparent 100%);
+    opacity: 0.5;
+}
+
+/* Маленький иероглиф над заголовком (заполняет пустоту) */
+.about-text .section-header::before {
+    content: '自己紹介'; /* Японский текст */
+    font-family: 'Noto Sans JP', serif;
+    font-size: 12px;
+    color: var(--lavender);
+    letter-spacing: 3px;
+    opacity: 0.5;
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* Текст */
+.about-desc {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    color: var(--lavender);
+    line-height: 1.8;
+    opacity: 0.9;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+    margin-bottom: 20px;
+    max-width: 95%; 
+}
+
+/* Теги */
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.tag {
+    background: var(--tint-soft);
+    color: var(--lavender);
+    font-size: 11px;
+    font-weight: 400;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--border-hover);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.tag:hover {
+    background: rgba(200, 160, 176, 0.2);
+    color: var(--rose);
+    border-color: rgba(200, 160, 176, 0.4);
+}
+
+/* Правая часть с коллажем */
+.about-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Главная большая картинка */
+.gallery-img-main {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 1px solid var(--border-soft);
+    transition: 0.3s;
+}
+
+/* Нижние две картинки */
+.gallery-sub {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.gallery-sub img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 1px solid var(--border-soft);
+    transition: 0.3s;
+}
+
+/* Эффект при наведении */
+.about-gallery img:hover {
+    transform: scale(1.02);
+    border-color: var(--rose);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Адаптив для телефонов */
+@media screen and (max-width: 900px) {
+    .about-section {
+        margin-top: 40px;
+        padding-top: 60px;
+        
+        /* ВОТ ГЛАВНОЕ ИСПРАВЛЕНИЕ: Возвращаем отступы по бокам */
+        padding-left: 20px; 
+        padding-right: 20px;
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr; 
+        gap: 30px;
+    }
+    
+    .about-text {
+        padding-left: 0; 
+        padding-top: 0;
+    }
+    
+    /* Убираем декоративную линию и иероглиф, чтобы не мешали */
+    .about-text::before {
+        display: none; 
+    }
+    
+    .about-text .section-header::before {
+        display: none; 
+    }
+    
+    .gallery-img-main {
+        height: 250px;
+    }
+    
+    .gallery-sub img {
+        height: 140px;
+    }
+}
+/* ============================================ */
+/* ФУТЕР (Подвал сайта)                         */
+/* ============================================ */
+
+.site-footer {
+    margin-top: 80px;
+    padding: 40px 0;
+    border-top: 1px solid var(--border-soft);
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center; /* Центрируем весь футер */
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px; 
+}
+
+/* Левая часть */
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-logo {
+    font-family: 'Noto Sans JP', serif;
+    font-size: 24px;
+    color: var(--rose);
+    opacity: 0.8;
+}
+
+.footer-brand p {
+    font-size: 12px;
+    color: var(--lavender);
+    opacity: 0.5;
+    font-weight: 300;
+}
+
+/* Правая часть (Соцсети) */
+.footer-socials {
+    display: flex;
+    flex-direction: column; /* В колонку (текст сверху, иконки снизу) */
+    align-items: center;    /* По центру */
+    gap: 12px;              
+}
+
+.socials-title {
+    font-size: 11px;
+    color: var(--lavender);
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--tint-soft);
+    border: 1px solid var(--border-soft);
+    color: var(--lavender);
+    font-size: 16px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+/* Эффект при наведении */
+.social-links a:hover {
+    background: var(--rose);
+    color: var(--midnight);
+    border-color: var(--rose);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(200, 160, 176, 0.3);
+}
+
+/* Адаптив для телефонов */
+@media screen and (max-width: 768px) {
+    .site-footer {
+        margin-top: 50px;
+        padding: 30px 20px;
+    }
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    .footer-brand {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
